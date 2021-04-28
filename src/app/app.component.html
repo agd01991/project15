@@ -1,0 +1,28 @@
+<div class="container">
+  <app-product-edit (addProduct)="onAddProduct($event)"></app-product-edit>
+   <app-edit-worker (editWorker)="onEditWorker($event)"></app-edit-worker>
+  <div class="row">
+    <div class="col-12" >
+      <app-product-element
+        [workers]="getByType(myWorkerType.programmer)"
+        [title]="'Программисты'"
+      ></app-product-element>
+       <hr>
+      <app-product-element
+        [workers]="getByType(myWorkerType.designer)"
+        [title]="'Дизайнеры'"
+      ></app-product-element>
+       <hr>
+      <app-product-element
+        [workers]="getByType(myWorkerType.copywriter)"
+        [title]="'Рекламщики'"
+      ></app-product-element>
+       <hr>
+      <app-product-element
+        [workers]="getByType(myWorkerType.manager)"
+        [title]="'Менеджеры'"
+      ></app-product-element>
+      <hr>
+    </div>
+  </div>
+</div>

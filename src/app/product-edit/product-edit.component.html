@@ -1,0 +1,69 @@
+<form [formGroup]="personForm">
+    <div class="row mb-3 mt-3">
+        <div class="col-12">
+            <h5>Добавить сотрудника</h5>
+        </div>
+        <div class="col-4">
+            <input
+                type="text"
+                class="form-control"
+                formControlName="id"
+                placeholder="id"
+            >
+            <div class="alert alert-danger"
+                *ngIf="personForm.controls['id'].invalid && personForm.controls['id'].touched">
+                 Вы не указали id
+            </div>
+        </div>
+        <div class="col-4">
+            <input
+                type="text"
+                class="form-control"
+                formControlName="firstName"
+                placeholder="Имя"
+            >
+            <div class="alert alert-danger"
+                *ngIf="personForm.controls['firstName'].invalid && personForm.controls['firstName'].touched">
+                 Вы не указали имя
+            </div>
+        </div>
+        <div class="col-4">
+            <input
+                type="text"
+                class="form-control"
+                formControlName="surname"
+                placeholder="Фамилия"
+            >
+            <div class="alert alert-danger"
+                *ngIf="personForm.controls['surname'].invalid && personForm.controls['surname'].touched">
+                 Вы не указали фамилию
+            </div>
+        </div>
+        <div class="col-3 mt-4">
+            <input
+                type="text"
+                class="form-control"
+                formControlName="phone"
+                placeholder="+7 (777) 777-77-77"
+            >
+            <div class="alert alert-danger"
+                *ngIf="personForm.controls['phone'].invalid && personForm.controls['phone'].touched">
+                  Вы указали некоррентрный номер телефона
+            </div>
+        </div>
+        <div class="col-2 mt-4">
+            <select class="custom-select" formControlName="type">
+                <option [ngValue]="myWorkerType.programmer">Программист</option>
+                <option [ngValue]="myWorkerType.designer">Дизайнер</option>
+                <option [ngValue]="myWorkerType.copywriter">Рекламщик</option>
+                <option [ngValue]="myWorkerType.manager">Менеджер</option>
+            </select>
+        </div>
+        <div class="col-12 mt-2">
+            <button class="btn btn-primary" (click)="onAddProduct()" [disabled]="personForm.invalid">
+                Добавить
+            </button>
+            <hr>
+        </div>
+    </div>
+</form>
